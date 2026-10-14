@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2f53eeb3-e494-4140-9b26-2a6c6efd614c" />iouio
+# Cách sử dụng Deep Learning và đánh giá
 
 ---
 
