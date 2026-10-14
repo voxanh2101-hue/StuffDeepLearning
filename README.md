@@ -1,4 +1,5 @@
-# Cách sử dụng Deep Learning và đánh giá
+# Cách sử dụng Deep Learning
+
 
 ## About this project 
 Phân loại hình ảnh trong CNFIR-10 dataset để đánh giá mô hình CNN which  
