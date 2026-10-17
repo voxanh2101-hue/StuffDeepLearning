@@ -20,3 +20,4 @@ Sau khi chuyển ảnh sang Tensor `[0, 1]`, từng kênh màu (R, G, B) sẽ đ
 ```python
 CIFAR10_MEAN = (0.4914, 0.4822, 0.4465)
 CIFAR10_STD  = (0.2470, 0.2435, 0.2616)
+
