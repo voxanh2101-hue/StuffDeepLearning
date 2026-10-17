@@ -1,6 +1,4 @@
-# 📘 Ghi Chú Kỹ Thuật: Tiền Xử Lý Dữ Liệu & Huấn Luyện Mô Hình (CIFAR-10)
-
-Tài liệu này tổng hợp các khái niệm cốt lõi và quy trình chuẩn bị dữ liệu khi huấn luyện mô hình Deep Learning với tập dữ liệu hình ảnh **CIFAR-10**.
+# 📘  Tiền Xử Lý Dữ Liệu 
 
 ---
 
@@ -11,10 +9,8 @@ Máy tính không thể "nhìn" và hiểu hình ảnh trực tiếp như con ng
 
 * **Mục tiêu:**
   1. **Đồng nhất định dạng:** Đưa toàn bộ dữ liệu đầu vào về cấu trúc toán học mà framework (PyTorch/TensorFlow) có thể tính toán trên ma trận.
-  2. **Tối ưu việc học:** Đưa giá trị pixel từ khoảng `[0, 255]` về khoảng `[0, 1]`, sau đó chuẩn hóa (Normalize) về phân phối chuẩn. Quá trình này giúp **mô hình hội tụ nhanh hơn và quá trình huấn luyện ổn định hơn** (tránh hiện tượng bùng nổ hoặc triệt tiêu đạo hàm).
+  2. **Tối ưu việc học:** Đưa giá trị pixel từ khoảng `[0, 255]` về khoảng `[0, 1]`, sau đó chuẩn hóa (Normalize) về phân phối chuẩn. 
 
-* **Khi nào cần chuyển đổi?**
-  * Thực hiện ngay tại bước **Data Loading / Preprocessing** (trước khi đưa dữ liệu vào mô hình), áp dụng cho cả 3 tập: `Train`, `Validation` và `Test`.
 
 ### 📊 Thông số chuẩn hóa trên tập CIFAR-10
 Sau khi chuyển ảnh sang Tensor `[0, 1]`, từng kênh màu (R, G, B) sẽ được chuẩn hóa theo công thức: `output = (input - mean) / std`. 
