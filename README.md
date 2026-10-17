@@ -1,22 +1,26 @@
-# Cách sử dụng Deep Learning
+# 📘 Ghi Chú Kỹ Thuật: Tiền Xử Lý Dữ Liệu & Huấn Luyện Mô Hình (CIFAR-10)
 
+Tài liệu này tổng hợp các khái niệm cốt lõi và quy trình chuẩn bị dữ liệu khi huấn luyện mô hình Deep Learning với tập dữ liệu hình ảnh **CIFAR-10**.
 
-## About this project 
-Phân loại hình ảnh trong CNFIR-10 dataset để đánh giá mô hình CNN which  
+---
 
+## 1. Tensor & Chuẩn Hóa Dữ Liệu (Normalization)
 
-1. Pre - processing data (Data Augmentation): 
-Tiền xử lý hình ảnh bằng cách sử dụng: RandomCrop và RandomHorizontal Flip để tăng cường dữ liệu hình ảnh
+### ❓ Tensor là gì và tại sao phải chuyển ảnh sang Tensor?
+Máy tính không thể "nhìn" và hiểu hình ảnh trực tiếp như con người. Để mô hình học sâu (Deep Learning) có thể xử lý được, hình ảnh cần được chuyển đổi thành **Tensor** (mảng đa chiều chứa các con số).
 
+* **Mục tiêu:**
+  1. **Đồng nhất định dạng:** Đưa toàn bộ dữ liệu đầu vào về cấu trúc toán học mà framework (PyTorch/TensorFlow) có thể tính toán trên ma trận.
+  2. **Tối ưu việc học:** Đưa giá trị pixel từ khoảng `[0, 255]` về khoảng `[0, 1]`, sau đó chuẩn hóa (Normalize) về phân phối chuẩn. Quá trình này giúp **mô hình hội tụ nhanh hơn và quá trình huấn luyện ổn định hơn** (tránh hiện tượng bùng nổ hoặc triệt tiêu đạo hàm).
 
-2. Split Dataset
+* **Khi nào cần chuyển đổi?**
+  * Thực hiện ngay tại bước **Data Loading / Preprocessing** (trước khi đưa dữ liệu vào mô hình), áp dụng cho cả 3 tập: `Train`, `Validation` và `Test`.
 
-3. CNN model
-   What is CNN model?
-   Purpose:
+### 📊 Thông số chuẩn hóa trên tập CIFAR-10
+Sau khi chuyển ảnh sang Tensor `[0, 1]`, từng kênh màu (R, G, B) sẽ được chuẩn hóa theo công thức: `output = (input - mean) / std`. 
 
-4. Training 
-5. Result Assessment
-   Which values
-   That value is good or
-   
+Đối với tập dữ liệu **CIFAR-10**, các giá trị trung bình (`Mean`) và độ lệch chuẩn (`Std`) đã được tính toán sẵn trên toàn bộ **50.000 ảnh** của tập huấn luyện:
+
+```python
+CIFAR10_MEAN = (0.4914, 0.4822, 0.4465)
+CIFAR10_STD  = (0.2470, 0.2435, 0.2616)
